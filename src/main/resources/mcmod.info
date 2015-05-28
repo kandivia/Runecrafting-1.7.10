@@ -1,0 +1,16 @@
+[
+{
+  "modid": "runecrafting",
+  "name": "Runecrafting Mod",
+  "description": "Craft your own magical runes!",
+  "version": "$version",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["kandivia"],
+  "credits": "MC Forge",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

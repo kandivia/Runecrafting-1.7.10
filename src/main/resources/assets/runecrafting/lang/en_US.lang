@@ -1,0 +1,30 @@
+itemGroup.Runecrafting=Runecrafting
+
+tile.silver_ore.name=Silver Ore
+tile.essence_ore.name=Rune Essence
+
+item.tiara.name=Tiara
+item.silver_ingot.name=Silver Ingot
+item.rune_essence.name=Rune Essence
+item.pure_essence.name=Pure Essence
+
+item.air_rune.name=Air Rune
+item.mind_rune.name=Mind Rune
+item.water_rune.name=Water Rune
+item.earth_rune.name=Earth Rune
+item.fire_rune.name=Fire Rune
+item.body_rune.name=Body Rune
+
+item.air_talisman.name=Air Talisman
+item.mind_talisman.name=Mind Talisman
+item.water_talisman.name=Water Talisman
+item.earth_talisman.name=Earth Talisman
+item.fire_talisman.name=Fire Talisman
+item.body_talisman.name=Body Talisman
+
+item.air_tiara.name=Air Tiara
+item.mind_tiara.name=Mind Tiara
+item.water_tiara.name=Water Tiara
+item.earth_tiara.name=Earth Tiara
+item.fire_tiara.name=Fire Tiara
+item.body_tiara.name=Body Tiara
