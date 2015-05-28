@@ -1,0 +1,51 @@
+lv0: Locate Essence- Tells the player the direction of the closest Rune Essence Mine portal
+lv1: Air Strike- Weak Projectile Damage
+lv3: Confuse-Unagro mobs and make them run around
+lv5: Water Strike-
+lv7: Low Level Enchant-Enchants an item(Opens GUI)
+lv9: Earth Strike-
+lv11: Weaken-Inflicts weakness on the Entity
+lv13: Fire Strike-
+lv15: Bones to Apples-
+lv17: Air Bolt- Medium Projectile Damage
+lv19: Curse-Entity gets damaged more easily
+lv20: Bind-Traps Entity for a short duration(2sec?)
+lv21: Low Level Alchemy-Converts Item to Gold Nuggets (Opens GUI)
+lv23: Water Bolt-
+lv27: Decent Level Enchant-
+lv29: Earth Bolt-
+lv33: Telekinetic Grab- Pulls items in front of the caster towards them
+lv35: Fire Bolt-
+lv40: Home Teleport- Teleports player to their spawn point
+lv41: Air Blast- High Projectile Damage
+lv43: Superheat Item-Instantly smelts X number of ore
+lv47: Water Blast-
+lv49: Average Level Enchant-
+lv50: Snare-Traps Entity for a duration(5sec?)
+lv53: Earth Blast-
+lv55: High Level Alchemy-
+lv57: High Level Enchant-
+lv59: Fire Blast-
+lv60: Divine Storm- Summons a ligthning storm
+lv62: Air Wave-Deadly Projectile Damage
+lv65: Water Wave-
+lv66: Vulnerability- High level Curse Spell
+lv68: Max Level Enchant-
+lv70: Earth Wave-
+lv73: Enfeeble- Weakness 2+ on entity
+lv75: Fire Wave-
+lv79: Entangle-Stuns Entity for a long duration(15secs?)
+lv85: Teleblock- Prevents Entity from teleporting or casting teleport spells
+lv90: Entity Teleport: Teleports another player to their spawn point or other entities get randomly teleported away in a close proximity(100blocks?)
+
+Notes:
+-Fire Based Spells set entities on fire
+-Water Based Spells temporarily places down water
+-Earth Based Spells give debuff?
+-Air Based Spells do high knockback
+
+Other Spells to add?:
+Blink-Teleport a short distance
+Item Restore-Repairs a piece of Armor or Tool (opens GUI)
+Mine?
+
