@@ -5,12 +5,12 @@ import com.kandivia.runecrafting.main.MainRegistry;
 
 import net.minecraft.item.Item;
 
-public class Materials extends Item {
-	public Materials(String name){
+public class Spellbook extends Item {
+	public Spellbook(){
 		super();
-		this.setUnlocalizedName(name);
-		this.setTextureName(Reference.MOD_ID + ":" + getUnlocalizedName().substring(5));
+		this.maxStackSize = 1;
+		this.setUnlocalizedName("standard_spellbook");
 		this.setCreativeTab(MainRegistry.tabRunecrafting);
+		this.setTextureName(Reference.MOD_ID + ":" + getUnlocalizedName().substring(5));
 	}
-
 }
