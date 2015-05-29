@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class CraftingRegister {
 		private static ItemStack silver_ingot = new  ItemStack(RegisterItems.silver_ingot);
@@ -19,7 +20,7 @@ public class CraftingRegister {
 		
 		public static void addCraftingRecipies() {
 			//Tiara
-			GameRegistry.addShapedRecipe(tiara, "xxx", "x x", 'x', silver_ingot);
+			GameRegistry.addRecipe(new ShapedOreRecipe(tiara, "xxx", "x x", 'x', "ingotSilver"));
 			
 			//Infused Tiaras
 			for(int i = 0; i < Tiaras.type.length; i++){

@@ -1,3 +1,2 @@
 -Add Talismans & Runes to Dungeon Loot
--Add OreDictionary Support to Silver Ore
 -Add missing textures

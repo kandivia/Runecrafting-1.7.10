@@ -2,6 +2,7 @@ package com.kandivia.runecrafting.main;
 
 import com.kandivia.runecrafting.event.MobDropEvent;
 import com.kandivia.runecrafting.helper.ConfigHandler;
+import com.kandivia.runecrafting.helper.DictionaryRegister;
 import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.init.CraftingRegister;
 import com.kandivia.runecrafting.init.RegisterBlocks;
@@ -37,6 +38,7 @@ public class MainRegistry {
 		ConfigHandler.init(preEvent.getSuggestedConfigurationFile());
 		RegisterBlocks.init();
 		RegisterItems.init();
+		DictionaryRegister.init();
 		CraftingRegister.init();
 		if(Reference.enableSilverOreSpawn)
 			GameRegistry.registerWorldGenerator(eventWorldGen, 0);
