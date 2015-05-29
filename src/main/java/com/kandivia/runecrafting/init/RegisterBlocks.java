@@ -2,7 +2,7 @@ package com.kandivia.runecrafting.init;
 
 import com.kandivia.runecrafting.blocks.EssenceOre;
 import com.kandivia.runecrafting.blocks.SilverOre;
-import com.kandivia.runecrafting.helper.Reference;
+import com.kandivia.runecrafting.main.Reference;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

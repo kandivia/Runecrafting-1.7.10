@@ -1,6 +1,8 @@
-package com.kandivia.runecrafting.helper;
+package com.kandivia.runecrafting.init;
 
 import java.io.File;
+
+import com.kandivia.runecrafting.main.Reference;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;

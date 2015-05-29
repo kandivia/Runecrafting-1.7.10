@@ -2,8 +2,8 @@ package com.kandivia.runecrafting.items;
 
 import java.util.List;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.main.MainRegistry;
+import com.kandivia.runecrafting.main.Reference;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.relauncher.Side;

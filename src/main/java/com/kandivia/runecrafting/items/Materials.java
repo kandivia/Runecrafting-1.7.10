@@ -1,7 +1,7 @@
 package com.kandivia.runecrafting.items;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.main.MainRegistry;
+import com.kandivia.runecrafting.main.Reference;
 
 import net.minecraft.item.Item;
 

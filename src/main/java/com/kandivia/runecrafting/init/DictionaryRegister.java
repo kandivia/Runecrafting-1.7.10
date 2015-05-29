@@ -1,7 +1,4 @@
-package com.kandivia.runecrafting.helper;
-
-import com.kandivia.runecrafting.init.RegisterBlocks;
-import com.kandivia.runecrafting.init.RegisterItems;
+package com.kandivia.runecrafting.init;
 
 import net.minecraftforge.oredict.OreDictionary;
 

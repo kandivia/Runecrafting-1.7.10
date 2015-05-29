@@ -2,8 +2,8 @@ package com.kandivia.runecrafting.worldgen;
 
 import java.util.Random;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.init.RegisterBlocks;
+import com.kandivia.runecrafting.main.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

@@ -2,13 +2,13 @@ package com.kandivia.runecrafting.init;
 
 import net.minecraft.item.Item;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.items.Essence;
 import com.kandivia.runecrafting.items.Materials;
 import com.kandivia.runecrafting.items.Runes;
 import com.kandivia.runecrafting.items.Spellbook;
 import com.kandivia.runecrafting.items.Talismans;
 import com.kandivia.runecrafting.items.Tiaras;
+import com.kandivia.runecrafting.main.Reference;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

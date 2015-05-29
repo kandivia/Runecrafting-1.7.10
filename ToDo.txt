@@ -1,2 +1,4 @@
--Add Talismans & Runes to Dungeon Loot
 -Add missing textures
+-Code Tiaras into Helmets
+-Add Locate Functionality to Talismans once Rune Altar World Generation is created
+-Create Altar World Gen.

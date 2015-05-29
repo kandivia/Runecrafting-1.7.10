@@ -2,9 +2,9 @@ package com.kandivia.runecrafting.blocks;
 
 import java.util.Random;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.init.RegisterItems;
 import com.kandivia.runecrafting.main.MainRegistry;
+import com.kandivia.runecrafting.main.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

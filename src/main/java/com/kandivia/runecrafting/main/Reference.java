@@ -1,4 +1,4 @@
-package com.kandivia.runecrafting.helper;
+package com.kandivia.runecrafting.main;
 
 public class Reference {
 	public static final String MOD_ID = "runecrafting";

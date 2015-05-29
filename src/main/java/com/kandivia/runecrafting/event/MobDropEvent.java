@@ -2,8 +2,8 @@ package com.kandivia.runecrafting.event;
 
 import java.util.Random;
 
-import com.kandivia.runecrafting.helper.Reference;
 import com.kandivia.runecrafting.init.RegisterItems;
+import com.kandivia.runecrafting.main.Reference;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
