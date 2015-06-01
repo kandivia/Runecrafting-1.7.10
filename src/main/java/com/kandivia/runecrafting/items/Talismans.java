@@ -4,13 +4,16 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import com.kandivia.runecrafting.main.MainRegistry;
 import com.kandivia.runecrafting.main.Reference;
+import com.kandivia.runecrafting.player.ExtendedPlayer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -54,5 +57,18 @@ public static final String[] type = new String[] {"air", "mind", "water", "earth
 		for(int i = 0; i < type.length; ++i){
 			list.add(new ItemStack(item, 1, i));
 		}
+    }
+	
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
+    {
+		if (!world.isRemote) {
+			ExtendedPlayer props = ExtendedPlayer.get(player);
+			
+			props.printExp();
+			
+			System.out.println("[Runecrafting] on Item Click Talisman");
+		}
+		
+        return itemstack;
     }
 }

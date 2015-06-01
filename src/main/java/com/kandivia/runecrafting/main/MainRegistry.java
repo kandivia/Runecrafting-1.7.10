@@ -7,6 +7,7 @@ import com.kandivia.runecrafting.init.DictionaryRegister;
 import com.kandivia.runecrafting.init.DungeonLootRegister;
 import com.kandivia.runecrafting.init.RegisterBlocks;
 import com.kandivia.runecrafting.init.RegisterItems;
+import com.kandivia.runecrafting.player.PlayerEventHandler;
 import com.kandivia.runecrafting.worldgen.RunecraftingWorldGen;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -44,5 +45,6 @@ public class MainRegistry {
 		if(Reference.enableSilverOreSpawn)
 			GameRegistry.registerWorldGenerator(eventWorldGen, 0);
 		MinecraftForge.EVENT_BUS.register(new MobDropEvent());
+		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
 	}
 }
