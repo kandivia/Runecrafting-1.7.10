@@ -57,7 +57,7 @@ public class Tiaras extends ItemArmor {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack){
+	public String getUnlocalizedName(ItemStack stack) {
 		return "item." + type[stack.getItemDamage()] + "_tiara";
 	}
 
@@ -70,13 +70,13 @@ public class Tiaras extends ItemArmor {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel (EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot){
+	public ModelBiped getArmorModel (EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot) {
 		ModelBiped armorModel = new Model(1.0F);
 		return armorModel;
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer){
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
 
 		String name = "_tiara";
 		name = type[stack.getItemDamage()] + name + "_1";
@@ -84,5 +84,4 @@ public class Tiaras extends ItemArmor {
 
 		return String.format("%s:textures/models/armor/%s.png", Reference.MOD_ID, name);
 	}
-
 }
