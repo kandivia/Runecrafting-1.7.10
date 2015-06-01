@@ -27,7 +27,9 @@ public class Spellbook extends Item {
 			if (level) {
 				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getLevel()));
 			}
-			System.out.println("[Runecrafting] on Item Click Spellbook");
+			
+			
+			
 			
 		}
 		

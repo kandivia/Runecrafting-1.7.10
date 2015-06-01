@@ -1,5 +1,6 @@
 package com.kandivia.runecrafting.main;
 
+import com.kandivia.runecrafting.common.RuneProxyCommon;
 import com.kandivia.runecrafting.event.MobDropEvent;
 import com.kandivia.runecrafting.init.ConfigHandler;
 import com.kandivia.runecrafting.init.CraftingRegister;
@@ -17,6 +18,7 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -31,6 +33,9 @@ public class MainRegistry {
 			return RegisterItems.essence;
 		}
 	};
+	
+	@SidedProxy(clientSide = "com.kandivia.runecrafting.client.RuneProxyClient", serverSide = "com.kandivia.runecrafting.common.RuneProxyCommon")
+    public static RuneProxyCommon proxy;
 	
 	RunecraftingWorldGen eventWorldGen = new RunecraftingWorldGen();
 	
