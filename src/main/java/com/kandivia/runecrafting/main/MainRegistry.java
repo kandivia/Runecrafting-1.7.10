@@ -34,7 +34,8 @@ public class MainRegistry {
 		}
 	};
 	
-	@SidedProxy(clientSide = "com.kandivia.runecrafting.client.RuneProxyClient", serverSide = "com.kandivia.runecrafting.common.RuneProxyCommon")
+	@SidedProxy(clientSide = "com.kandivia.runecrafting.client.RuneProxyClient", 
+			serverSide = "com.kandivia.runecrafting.common.RuneProxyCommon")
     public static RuneProxyCommon proxy;
 	
 	RunecraftingWorldGen eventWorldGen = new RunecraftingWorldGen();

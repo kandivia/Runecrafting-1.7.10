@@ -1,6 +1,7 @@
 package com.kandivia.runecrafting.init;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 import com.kandivia.runecrafting.items.Essence;
 import com.kandivia.runecrafting.items.Materials;
@@ -8,12 +9,17 @@ import com.kandivia.runecrafting.items.Runes;
 import com.kandivia.runecrafting.items.Spellbook;
 import com.kandivia.runecrafting.items.Talismans;
 import com.kandivia.runecrafting.items.Tiaras;
+import com.kandivia.runecrafting.items.WizardArmor;
+import com.kandivia.runecrafting.main.MainRegistry;
 import com.kandivia.runecrafting.main.Reference;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RegisterItems {
-	public static Item essence, runes, talismans, tiaras, tiara, silver_ingot, spellbook;
+	public static Item essence, runes, talismans, tiaras, tiara, silver_ingot, spellbook, 
+		wizard_hat, wizard_robe, wizard_skirt, wizard_boots;
+	public static Item[] wizardItem = {wizard_hat, wizard_robe, wizard_skirt, wizard_boots};
+	public static String[] wizardString = {"wizard_hat", "wizard_robe", "wizard_skirt", "wizard_boots"};
 	
 	public static void init() {
 		initItem();
@@ -29,6 +35,10 @@ public class RegisterItems {
 		tiara = new Materials("tiara").setMaxStackSize(1);
 		silver_ingot = new Materials("silver_ingot");
 		
+		for(int i = 0; i < wizardString.length; i++){
+			wizardItem[i] = new WizardArmor(ArmorMaterial.CLOTH , MainRegistry.proxy.addArmor("wizardArmor"), i)
+				.setUnlocalizedName(wizardString[i]).setTextureName(Reference.MOD_ID + ":" + wizardString[i]);
+		}		
 	}
 	
 	private static void registerItem() {
@@ -39,6 +49,10 @@ public class RegisterItems {
 		registerItem(spellbook);
 		registerItem(tiara);
 		registerItem(silver_ingot);
+		
+		for(int i = 0; i < wizardString.length; i++){
+			registerItem(wizardItem[i]);
+		}
 	}
 	
 	private static void registerItem(Item item) {

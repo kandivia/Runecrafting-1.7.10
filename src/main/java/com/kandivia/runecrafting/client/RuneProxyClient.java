@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.entity.RenderItem;
 
 import com.kandivia.runecrafting.common.RuneProxyCommon;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+
 public class RuneProxyClient extends RuneProxyCommon {
 
     public static Minecraft mc;
@@ -22,4 +24,8 @@ public class RuneProxyClient extends RuneProxyCommon {
     public ModelBiped getArmorModel(int id) {
     	return null;
     }
+    
+    public int addArmor(String armor) {
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }

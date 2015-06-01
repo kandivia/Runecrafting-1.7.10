@@ -9,6 +9,11 @@ item.standard_spellbook.name=Spellbook
 item.rune_essence.name=Rune Essence
 item.pure_essence.name=Pure Essence
 
+item.wizard_hat.name=Wizard Hat
+item.wizard_robe.name=Wizard Robe
+item.wizard_skirt.name=Wizard Skirt
+item.wizard_boots.name=Wizard Boots
+
 item.air_rune.name=Air Rune
 item.mind_rune.name=Mind Rune
 item.water_rune.name=Water Rune

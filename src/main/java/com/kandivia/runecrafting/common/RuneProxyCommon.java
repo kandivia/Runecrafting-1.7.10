@@ -30,7 +30,11 @@ public class RuneProxyCommon implements IGuiHandler
 		
 	}
 	
-	 public ModelBiped getArmorModel(int id) {
-		 return null; 
-		}
+	public ModelBiped getArmorModel(int id) {
+		return null;
+	}
+	
+	public int addArmor(String string) {
+		return 0;
+	}
 }
