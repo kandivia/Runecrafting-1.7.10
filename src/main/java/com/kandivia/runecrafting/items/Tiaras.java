@@ -27,10 +27,8 @@ public class Tiaras extends ItemArmor {
 
 	public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
 		"cosmic", "chaos", "nature", "law", "death", "blood"};
-
-
-
 	public String textureName;
+	
 	public Tiaras(){
 		super(ArmorMaterial.IRON, 3 , 0);
 		this.maxStackSize = 1;
@@ -46,6 +44,7 @@ public class Tiaras extends ItemArmor {
 	public void registerIcons(IIconRegister icon) {
 		this.icon = new IIcon[type.length];
 		for (int i = 0; i < type.length; ++i) {
+			//Why a variable for textureName? Are you referencing it elsewhere?
 			this.textureName = Reference.MOD_ID + ":" + type[i] + "_tiara";
 			this.icon[i] = icon.registerIcon(this.textureName);
 		}
