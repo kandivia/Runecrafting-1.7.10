@@ -26,6 +26,10 @@ public class CraftingRegister {
 			for(int i = 0; i < Tiaras.type.length; i++){
 				GameRegistry.addShapelessRecipe(new ItemStack(RegisterItems.tiaras, 1, i), new ItemStack(RegisterItems.talismans, 1, i), tiara);				
 			}
+			
+			
+			//placeholder spellbook
+			GameRegistry.addShapelessRecipe(new ItemStack(RegisterItems.spellbook), new ItemStack(Blocks.dirt));
 		}
 		
 		public static void addSmeltingRecipies() {

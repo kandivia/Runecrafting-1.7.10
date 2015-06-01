@@ -4,51 +4,23 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+
 public class ModelTiara extends ModelBiped {
-	//fields
-	ModelRenderer basehorn;
-	ModelRenderer horn1;
-	ModelRenderer rightshoulder;
-	ModelRenderer leftshoulder;
+	ModelRenderer head;
 
 	public ModelTiara(float expand) {
-		super (expand, 0 ,64 ,64);
-		textureWidth = 64;
-		textureHeight = 64;
-
-		basehorn = new ModelRenderer(this, 38, 0);
-		basehorn.addBox(-1F, -9F, -4.5F, 2, 2, 2);
-		basehorn.setTextureSize(64, 32);
-		basehorn.mirror = true;
-		setRotation(basehorn, 0F, 0F, 0F);
-		
-		horn1 = new ModelRenderer(this, 33, 0);
-		horn1.addBox(-0.5F, -14.5F, 0.7666667F, 1, 5, 1);
-		horn1.setTextureSize(64, 32);
-		horn1.mirror = true;
-
-		setRotation(horn1, 0.5576792F, 0F, 0F);
-		rightshoulder = new ModelRenderer(this, 0, 33);
-		rightshoulder.addBox(-3.5F, -3F, -2.5F, 5, 5, 5);
-		rightshoulder.setTextureSize(64, 32);
-		rightshoulder.mirror = true;
-		setRotation(rightshoulder, 0F, 0F, 0F);
-
-		leftshoulder = new ModelRenderer(this, 0, 33);
-		leftshoulder.addBox(-1.5F, -3F, -2.5F, 5, 5, 5);
-		leftshoulder.setTextureSize(64, 32);
-		leftshoulder.mirror = true;
-		setRotation(leftshoulder, 0F, 0F, 0F);
+		super(expand, 0, 64, 64);
+		head = new ModelRenderer(this, 0, 0);
+		head.addBox(-4F, -14F, -4F, 8, 8, 8);
+		head.setRotationPoint(0F, 0F, 0F);
+		head.setTextureSize(64, 64);
+		head.mirror = false;
+		setRotation(head, 0F, 0F, 0F);
 	}
 
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-
-		basehorn.render(f5);
-		horn1.render(f5);
-		rightshoulder.render(f5);
-		leftshoulder.render(f5);
+		head.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
