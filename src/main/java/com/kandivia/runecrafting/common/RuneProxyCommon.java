@@ -41,8 +41,4 @@ public class RuneProxyCommon implements IGuiHandler
 		double z = itemstack.stackTagCompound.getDouble("teleportZ");
 		player.setPosition(x, y, z);		
 	}
-	
-	public int addArmor(String string) {
-		return 0;
-	}
 }

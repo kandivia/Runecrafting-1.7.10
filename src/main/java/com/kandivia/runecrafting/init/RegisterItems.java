@@ -36,8 +36,7 @@ public class RegisterItems {
 		silver_ingot = new Materials("silver_ingot");
 		
 		for(int i = 0; i < wizardString.length; i++){
-			wizardItem[i] = new WizardArmor(ArmorMaterial.CLOTH , MainRegistry.proxy.addArmor("wizardArmor"), i)
-				.setUnlocalizedName(wizardString[i]).setTextureName(Reference.MOD_ID + ":" + wizardString[i]);
+			wizardItem[i] = new WizardArmor(wizardString[i], ArmorMaterial.CLOTH , wizardString[i], i);
 		}		
 	}
 	

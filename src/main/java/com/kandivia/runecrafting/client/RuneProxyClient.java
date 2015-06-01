@@ -24,8 +24,4 @@ public class RuneProxyClient extends RuneProxyCommon {
     public ModelBiped getArmorModel(int id) {
     	return null;
     }
-    
-    public int addArmor(String armor) {
-		return RenderingRegistry.addNewArmourRendererPrefix(armor);
-	}
 }
