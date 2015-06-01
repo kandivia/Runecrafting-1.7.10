@@ -32,6 +32,20 @@ public class WizardArmor extends ItemArmor {
         return false;
     }
 	
+	public int getColor(ItemStack stack) {
+        if (this.material != ItemArmor.ArmorMaterial.CLOTH) {
+            return -1;
+        }else {
+            NBTTagCompound nbttagcompound = stack.getTagCompound();
+            if (nbttagcompound == null) {
+                return 16777215;
+            }else {
+                NBTTagCompound nbttagcompound1 = nbttagcompound.getCompoundTag("display");
+                return nbttagcompound1 == null ? 16777215 : (nbttagcompound1.hasKey("color", 3) ? nbttagcompound1.getInteger("color") : 16777215);
+            }
+        }
+    }
+	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 	    return Reference.MOD_ID + ":textures/models/armor/wizard_layer_" + (this.armorType == 2 ? "2" : "1") + ".png";
