@@ -6,8 +6,6 @@ import net.minecraft.entity.Entity;
 
 public class ModelTiara extends ModelBiped {
 	//fields
-
-
 	ModelRenderer basehorn;
 	ModelRenderer horn1;
 	ModelRenderer rightshoulder;
@@ -22,8 +20,8 @@ public class ModelTiara extends ModelBiped {
 		basehorn.addBox(-1F, -9F, -4.5F, 2, 2, 2);
 		basehorn.setTextureSize(64, 32);
 		basehorn.mirror = true;
-		setRotation(basehorn, 0F, 0F, 0F)
-		;
+		setRotation(basehorn, 0F, 0F, 0F);
+		
 		horn1 = new ModelRenderer(this, 33, 0);
 		horn1.addBox(-0.5F, -14.5F, 0.7666667F, 1, 5, 1);
 		horn1.setTextureSize(64, 32);
@@ -43,8 +41,7 @@ public class ModelTiara extends ModelBiped {
 		setRotation(leftshoulder, 0F, 0F, 0F);
 	}
 
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-	{
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
@@ -54,12 +51,9 @@ public class ModelTiara extends ModelBiped {
 		leftshoulder.render(f5);
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z)
-	{
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
-
-
 }

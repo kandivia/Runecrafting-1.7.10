@@ -12,11 +12,9 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import com.kandivia.runecrafting.main.Reference;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
-
+	
 	public static final String PROPERTIESNAME = Reference.MOD_ID;
-
 	public WeakReference<EntityPlayer> player;
-
 	private int currentExp, currentLevel, expToLevel;
 
 	public ExtendedPlayer() {
@@ -40,7 +38,6 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 
 	@Override
 	public void saveNBTData(NBTTagCompound compound) {
-
 		NBTTagCompound properties = new NBTTagCompound();
 		properties.setInteger("currentExp", currentExp);
 		properties.setInteger("currentLevel", currentLevel);
@@ -89,6 +86,4 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public int getLevel() {
 		return this.currentLevel;
 	}
-
-
 }

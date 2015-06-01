@@ -7,9 +7,8 @@ import cpw.mods.fml.common.network.IGuiHandler;
 
 public class RuneProxyCommon implements IGuiHandler
 {
-	public void initialize ()
-	{
-
+	public void initialize () {
+		
 	}
 
 	@Override

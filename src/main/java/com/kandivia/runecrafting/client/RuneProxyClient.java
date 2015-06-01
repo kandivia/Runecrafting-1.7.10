@@ -22,5 +22,4 @@ public class RuneProxyClient extends RuneProxyCommon {
     public ModelBiped getArmorModel(int id) {
     	return null;
     }
- 
 }
