@@ -13,11 +13,12 @@ import net.minecraft.world.World;
 import com.kandivia.runecrafting.main.MainRegistry;
 import com.kandivia.runecrafting.main.Reference;
 import com.kandivia.runecrafting.player.ExtendedPlayer;
+import com.kandivia.runecrafting.spells.StandardBook;
 
 public class Spellbook extends Item {
 	
 	
-	public Spellbook(){
+	public Spellbook() {
 		super();
 		this.maxStackSize = 1;
 		this.setUnlocalizedName("standard_spellbook");
@@ -44,9 +45,11 @@ public class Spellbook extends Item {
     }
 }
 	
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
-    {
-		if (!player.isSneaking()) {
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
+		if(!player.isSneaking()){
+			StandardBook.bonesToApples(player);
+		}
+		/*if (!player.isSneaking()) {
 			MainRegistry.proxy.handleTeleport(player, itemstack);
 		}
 		if (player.isSneaking()) {
@@ -60,7 +63,7 @@ public class Spellbook extends Item {
 			if (level) {
 				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getLevel()));
 			}		
-		}
+		}*/
 		
         return itemstack;
     }
