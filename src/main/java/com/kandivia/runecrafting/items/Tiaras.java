@@ -25,7 +25,7 @@ public class Tiaras extends ItemArmor {
 	public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
 		"cosmic", "chaos", "nature", "law", "death", "blood"};
 	
-	public Tiaras(){
+	public Tiaras() {
 		super(ArmorMaterial.IRON, 3 , 0);
 		this.maxStackSize = 1;
 		this.setUnlocalizedName("tiaras");
@@ -40,9 +40,6 @@ public class Tiaras extends ItemArmor {
 	public void registerIcons(IIconRegister icon) {
 		this.icon = new IIcon[type.length];
 		for (int i = 0; i < type.length; ++i) {
-			//Why a variable for textureName? Are you referencing it elsewhere?
-			//I was, but i realized that it wasn't working and for some reason
-			//it was dropping the type so I switched methods
 			this.icon[i] = icon.registerIcon(Reference.MOD_ID + ":" + type[i] + "_tiara");
 		}
 	}
@@ -54,7 +51,7 @@ public class Tiaras extends ItemArmor {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack){
+	public String getUnlocalizedName(ItemStack stack) {
 		return "item." + type[stack.getItemDamage()] + "_tiara";
 	}
 
@@ -67,18 +64,26 @@ public class Tiaras extends ItemArmor {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel (EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot){
+	public ModelBiped getArmorModel (EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot) {
 		ModelBiped armorModel = new ModelTiara(1.0F);
 		return armorModel;
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer){
-
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
 		String name = "_tiara";
 		name = type[stack.getItemDamage()] + name + "_1";
 
 		return String.format("%s:textures/models/armor/%s.png", Reference.MOD_ID, name);
 	}
-
+	
+	public boolean isDamageable(){
+		return false;
+	}
+	
+	public void setDamage(ItemStack stack, int damage) {}
+	
+	public boolean showDurabilityBar(ItemStack stack) {
+		return false;
+	}
 }
