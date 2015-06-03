@@ -1,6 +1,7 @@
 package com.kandivia.runecrafting.spells;
 
 import com.kandivia.runecrafting.init.RegisterItems;
+import com.kandivia.runecrafting.player.ExtendedPlayer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -42,9 +43,22 @@ public class StandardBook {
 			}
 			
 		}else if(!world.isRemote){
-			player.addChatComponentMessage(new ChatComponentText("You don't have the nessecary Runes to cast this spell!"));
+			player.addChatComponentMessage(new ChatComponentText("You don't have the nessecary Runes to cast this spell!"));			
+		}
+		if(count > 0){
+			player.inventory.addItemStackToInventory(new ItemStack(Items.apple, count, 0));
+			giveExp(world, player, 2);
 		}		
-		player.inventory.addItemStackToInventory(new ItemStack(Items.apple, count, 0));
+	}
+	
+	public static void giveExp(World world, EntityPlayer player, int exp){
+		if (!world.isRemote) {
+			ExtendedPlayer props = ExtendedPlayer.get(player);
+			boolean level = props.addExp(exp);
+			if (level) {
+				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getLevel()));
+			}		
+		}
 	}
 	
 	public static boolean checkItems(IInventory inventory, ItemStack stack, int count) {

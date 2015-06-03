@@ -48,23 +48,12 @@ public class Spellbook extends Item {
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!player.isSneaking()){
 			StandardBook.bonesToApples(world, player);
-		}
-		/*if (!player.isSneaking()) {
-			MainRegistry.proxy.handleTeleport(player, itemstack);
-		}
-		if (player.isSneaking()) {
+			//MainRegistry.proxy.handleTeleport(player, itemstack);
+		}else {
 			itemstack.stackTagCompound.setDouble("teleportX", player.posX);
 			itemstack.stackTagCompound.setDouble("teleportY", player.posY);
-			itemstack.stackTagCompound.setDouble("teleportZ", player.posZ);		}
-		
-		if (!world.isRemote) {
-			ExtendedPlayer props = ExtendedPlayer.get(player);
-			boolean level = props.addExp(2);
-			if (level) {
-				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getLevel()));
-			}		
-		}*/
-		
+			itemstack.stackTagCompound.setDouble("teleportZ", player.posZ);
+		}		
         return itemstack;
     }
 }
