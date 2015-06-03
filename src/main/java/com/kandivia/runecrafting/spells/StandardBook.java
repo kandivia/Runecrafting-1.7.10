@@ -8,6 +8,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.world.World;
 
 public class StandardBook {
 	public static ItemStack air = new ItemStack(RegisterItems.runes, 1, 0);
@@ -22,25 +23,25 @@ public class StandardBook {
 	public static ItemStack law = new ItemStack(RegisterItems.runes, 1, 9);
 	public static ItemStack death = new ItemStack(RegisterItems.runes, 1, 10);
 	
-	public static void bonesToApples(EntityPlayer player){
-		int count = 0;
-		if(checkItems(player.inventory, nature, 1) && checkItems(player.inventory, earth, 2) && checkItems(player.inventory, water, 2)){
-			if(player.inventory.hasItem(Items.bone)){
+	public static void bonesToApples(World world, EntityPlayer player) {
+		int count = 0;		
+		if(checkItems(player.inventory, nature, 1) && checkItems(player.inventory, earth, 2) && checkItems(player.inventory, water, 2)) {
+			if(player.inventory.hasItem(Items.bone)) {
 				if(consumeItems(player.inventory, nature, 1) &&	consumeItems(player.inventory, earth, 2) &&	
-						consumeItems(player.inventory, water, 2)){
+						consumeItems(player.inventory, water, 2)) {
 					for(int i = 0; i < 8; i++){				
-						if(player.inventory.consumeInventoryItem(Items.bone)){
+						if(player.inventory.consumeInventoryItem(Items.bone)) {
 							count++;
 						}else {
 							break;					
 						}
 					}
 				}				
-			}else{
+			}else if(!world.isRemote){
 				player.addChatComponentMessage(new ChatComponentText("You don't have any bones to cast this spell on!"));
 			}
 			
-		}else{
+		}else if(!world.isRemote){
 			player.addChatComponentMessage(new ChatComponentText("You don't have the nessecary Runes to cast this spell!"));
 		}		
 		player.inventory.addItemStackToInventory(new ItemStack(Items.apple, count, 0));
@@ -77,7 +78,7 @@ public class StandardBook {
 			    if (itemstack != null && itemstack.isItemEqual(stack)) {
 				    if ((count -= itemstack.stackSize) >= 0) {
 					    inventory.setInventorySlotContents(slot, (ItemStack)null);
-				    } else {
+				    }else {
 					    itemstack.stackSize = -count;
 				    }
 			    }

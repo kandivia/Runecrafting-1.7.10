@@ -37,17 +37,17 @@ public class Spellbook extends Item {
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
     if (itemStack.stackTagCompound != null) {
             String owner = itemStack.stackTagCompound.getString("owner");
-            double serverX = itemStack.stackTagCompound.getDouble("teleportX");
-            double serverY = itemStack.stackTagCompound.getDouble("teleportY");
-            double serverZ = itemStack.stackTagCompound.getDouble("teleportZ");
-            list.add("owner: " + owner);
+            int serverX = (int) itemStack.stackTagCompound.getDouble("teleportX");
+            int serverY = (int) itemStack.stackTagCompound.getDouble("teleportY");
+            int serverZ = (int) itemStack.stackTagCompound.getDouble("teleportZ");
+            list.add("Owner: " + owner);
             list.add("Coordinates (" + serverX + ", " + serverY + ", " + serverZ+")");
     }
 }
 	
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!player.isSneaking()){
-			StandardBook.bonesToApples(player);
+			StandardBook.bonesToApples(world, player);
 		}
 		/*if (!player.isSneaking()) {
 			MainRegistry.proxy.handleTeleport(player, itemstack);
