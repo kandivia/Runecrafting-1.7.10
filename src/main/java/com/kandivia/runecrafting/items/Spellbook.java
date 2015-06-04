@@ -47,7 +47,8 @@ public class Spellbook extends Item {
 	
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!player.isSneaking()){
-			StandardBook.bonesToApples(world, player);
+			//StandardBook.bonesToApples(world, player);
+			StandardBook.superheatItem(world, player);
 			//MainRegistry.proxy.handleTeleport(player, itemstack);
 		}else {
 			itemstack.stackTagCompound.setDouble("teleportX", player.posX);
