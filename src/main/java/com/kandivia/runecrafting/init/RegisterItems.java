@@ -16,10 +16,8 @@ import com.kandivia.runecrafting.main.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RegisterItems {
-	public static Item essence, runes, talismans, tiaras, tiara, silver_ingot, spellbook, 
+	public static Item essence, runes, talismans, tiaras, tiara, silver_ingot, spellbook, ball_of_wool, 
 		wizard_hat, wizard_robe, wizard_skirt, wizard_boots;
-	public static Item[] wizardItem = {wizard_hat, wizard_robe, wizard_skirt, wizard_boots};
-	public static String[] wizardString = {"wizard_hat", "wizard_robe", "wizard_skirt", "wizard_boots"};
 	
 	public static void init() {
 		initItem();
@@ -34,10 +32,12 @@ public class RegisterItems {
 		spellbook = new Spellbook();
 		tiara = new Materials("tiara").setMaxStackSize(1);
 		silver_ingot = new Materials("silver_ingot");
+		ball_of_wool = new Materials("ball_of_wool");
 		
-		for(int i = 0; i < wizardString.length; i++){
-			wizardItem[i] = new WizardArmor(wizardString[i], ArmorMaterial.CLOTH , wizardString[i], i);
-		}		
+		wizard_hat = new WizardArmor("wizard_hat", ArmorMaterial.CLOTH, 1, 0);
+		wizard_robe = new WizardArmor("wizard_robe", ArmorMaterial.CLOTH, 1, 1);
+		wizard_skirt = new WizardArmor("wizard_skirt", ArmorMaterial.CLOTH, 2, 2);
+		wizard_boots = new WizardArmor("wizard_boots", ArmorMaterial.CLOTH, 1, 3);		
 	}
 	
 	private static void registerItem() {
@@ -48,10 +48,12 @@ public class RegisterItems {
 		registerItem(spellbook);
 		registerItem(tiara);
 		registerItem(silver_ingot);
+		registerItem(ball_of_wool);
 		
-		for(int i = 0; i < wizardString.length; i++){
-			registerItem(wizardItem[i]);
-		}
+		registerItem(wizard_hat);
+		registerItem(wizard_robe);
+		registerItem(wizard_skirt);
+		registerItem(wizard_boots);
 	}
 	
 	private static void registerItem(Item item) {

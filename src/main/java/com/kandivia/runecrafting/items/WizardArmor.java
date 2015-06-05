@@ -16,14 +16,12 @@ import net.minecraft.util.IIcon;
 public class WizardArmor extends ItemArmor {
 	
 	private final ItemArmor.ArmorMaterial material;
-	private String textureName;
 	
-	public WizardArmor(String unlocalizedName, ArmorMaterial material, String textureName, int type) {
-		super(material, 0, type);
+	public WizardArmor(String name, ArmorMaterial material, int renderIndex, int type) {
+		super(material, renderIndex, type);
 		this.material = material;
-		this.textureName = textureName;
-	    this.setUnlocalizedName(unlocalizedName);
-	    this.setTextureName(Reference.MOD_ID + ":" + unlocalizedName);
+	    this.setUnlocalizedName(name);
+	    this.setTextureName(Reference.MOD_ID + ":" + name);
 		this.setCreativeTab(MainRegistry.tabRunecrafting);
 	}
 	
