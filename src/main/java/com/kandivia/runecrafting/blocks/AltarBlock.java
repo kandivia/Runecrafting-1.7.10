@@ -5,6 +5,7 @@ import java.util.List;
 import com.kandivia.runecrafting.init.RegisterItems;
 import com.kandivia.runecrafting.main.MainRegistry;
 import com.kandivia.runecrafting.main.Reference;
+import com.kandivia.runecrafting.player.ExtendedPlayer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -40,26 +41,38 @@ public class AltarBlock extends Block{
 			int metaNum = this.getDamageValue(world, x, y, z);
 			if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).isItemEqual(new ItemStack(RegisterItems.tiaras, 1, metaNum))) ||
 					(player.inventory.getCurrentItem() != null && player.inventory.getCurrentItem().isItemEqual(new ItemStack(RegisterItems.talismans, 1, metaNum)))) {
-				
+				int essenceCount = 0;				
 				for(int slot = 0; slot < player.inventory.getSizeInventory(); ++slot) {
 					ItemStack itemstack = player.inventory.getStackInSlot(slot);
 					if(metaNum > 5){
 						if(itemstack != null && itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1))) {
+							essenceCount++;
 							player.inventory.setInventorySlotContents(slot, null);
 							player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.runes, 1, metaNum));
 						}
 					}else {
 						if(itemstack != null && (itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 0)) || 
 								itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1)))) {
+							essenceCount++;
 							player.inventory.setInventorySlotContents(slot, null);
 							player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.runes, 1, metaNum));							
 						}
 					}					
-				}				
+				}
+				giveRuneExp(world, player, essenceCount);
 			}
 		}
         return false;
     }
+	
+	public static void giveRuneExp(World world, EntityPlayer player, int exp){
+		if (!world.isRemote) {
+			ExtendedPlayer props = ExtendedPlayer.get(player);
+			if (props.addRuneExp(exp)) {
+				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getRuneLevel() + " Runecrafting!"));
+			}		
+		}
+	}
 	
 	@Override
     public void registerBlockIcons(IIconRegister reg) {

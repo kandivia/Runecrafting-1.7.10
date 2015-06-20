@@ -52,7 +52,7 @@ public class StandardBook {
 		}
 		if(count > 0){
 			player.inventory.addItemStackToInventory(new ItemStack(Items.apple, count, 0));
-			giveExp(world, player, 2);
+			giveMagicExp(world, player, 2);
 		}		
 	}
 	
@@ -106,7 +106,7 @@ public class StandardBook {
 							}
 						}	
 					}
-					giveExp(world, player, 2);
+					giveMagicExp(world, player, 2);
 				}
 			}else if(!world.isRemote) {
 				player.addChatComponentMessage(new ChatComponentText("You don't have anything to cast this spell on!"));
@@ -117,12 +117,11 @@ public class StandardBook {
 		}		
 	}
 	
-	public static void giveExp(World world, EntityPlayer player, int exp){
+	public static void giveMagicExp(World world, EntityPlayer player, int exp){
 		if (!world.isRemote) {
 			ExtendedPlayer props = ExtendedPlayer.get(player);
-			boolean level = props.addExp(exp);
-			if (level) {
-				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getLevel()));
+			if (props.addMagicExp(exp)) {
+				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getMagicLevel() + " Magic!"));
 			}		
 		}
 	}
