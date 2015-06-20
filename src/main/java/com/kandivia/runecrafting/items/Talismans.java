@@ -18,20 +18,19 @@ import com.kandivia.runecrafting.player.ExtendedPlayer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Talismans extends Item{
-public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
-	"cosmic", "chaos", "nature", "law", "death", "blood"};
+public class Talismans extends Item {
+	public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
+		"cosmic", "chaos", "nature", "law", "death", "blood"};
+	@SideOnly(Side.CLIENT)
+	private IIcon[] icon;
 	
-	public Talismans(){
+	public Talismans() {
 		super();
 		this.maxStackSize = 1;
 		this.setUnlocalizedName("talismans");
 		this.setHasSubtypes(true);
 		this.setCreativeTab(MainRegistry.tabRunecrafting);
 	}
-	
-	@SideOnly(Side.CLIENT)
-    private IIcon[] icon;
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister icon) {
@@ -48,7 +47,7 @@ public static final String[] type = new String[] {"air", "mind", "water", "earth
     }
 	
 	@Override
-    public String getUnlocalizedName(ItemStack stack){
+    public String getUnlocalizedName(ItemStack stack) {
 		return "item." + type[stack.getItemDamage()] + "_talisman";
 	}
 	 
@@ -57,18 +56,5 @@ public static final String[] type = new String[] {"air", "mind", "water", "earth
 		for(int i = 0; i < type.length; ++i){
 			list.add(new ItemStack(item, 1, i));
 		}
-    }
-	
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
-    {
-		if (!world.isRemote) {
-			ExtendedPlayer props = ExtendedPlayer.get(player);
-			
-			props.printExp();
-			
-			System.out.println("[Runecrafting] on Item Click Talisman");
-		}
-		
-        return itemstack;
     }
 }
