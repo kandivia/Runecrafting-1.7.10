@@ -41,10 +41,60 @@ public class AltarBlock extends Block{
 			int metaNum = this.getDamageValue(world, x, y, z);
 			if((player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).isItemEqual(new ItemStack(RegisterItems.tiaras, 1, metaNum))) ||
 					(player.inventory.getCurrentItem() != null && player.inventory.getCurrentItem().isItemEqual(new ItemStack(RegisterItems.talismans, 1, metaNum)))) {
+				int currentLevel = ExtendedPlayer.get(player).getRuneLevel();
+				switch(metaNum){
+				case 0:
+					craftRunes(world, player, metaNum, 1, currentLevel, 0);												
+					break;
+				case 1:
+					craftRunes(world, player, metaNum, 1, currentLevel, 0);
+					break;
+				case 2:
+					craftRunes(world, player, metaNum, 2, currentLevel, 5);
+					break;
+				case 3:
+					craftRunes(world, player, metaNum, 4, currentLevel, 9);
+					break;
+				case 4:
+					craftRunes(world, player, metaNum, 8, currentLevel, 14);
+					break;
+				case 5:
+					craftRunes(world, player, metaNum, 16, currentLevel, 20);
+					break;
+				case 6:
+					craftRunes(world, player, metaNum, 32, currentLevel, 27);
+					break;
+				case 7:
+					craftRunes(world, player, metaNum, 64, currentLevel, 35);
+					break;
+				case 8:
+					craftRunes(world, player, metaNum, 128, currentLevel, 44);
+					break;
+				case 9:
+					craftRunes(world, player, metaNum, 252, currentLevel, 54);
+					break;
+				case 10:
+					craftRunes(world, player, metaNum, 504, currentLevel, 65);
+					break;
+				case 11:
+					craftRunes(world, player, metaNum, 1008, currentLevel, 77);
+					break;
+				}				
+			}
+		}
+        return false;
+    }
+	
+	public static void craftRunes(World world, EntityPlayer player, int metaNum, int runeExp, int currentLevel, int reqLevel) {
+		if(currentLevel >= reqLevel) {
+			if(player.inventory.getFirstEmptyStack() == -1) {
+				if(!world.isRemote)
+					player.addChatComponentMessage(new ChatComponentText("You don't have any room in your inventory!"));
+			}else {
 				int essenceCount = 0;				
-				for(int slot = 0; slot < player.inventory.getSizeInventory(); ++slot) {
+				for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++) {
 					ItemStack itemstack = player.inventory.getStackInSlot(slot);
-					if(metaNum > 5){
+					if(metaNum > 5) {
 						if(itemstack != null && itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1))) {
 							essenceCount++;
 							player.inventory.setInventorySlotContents(slot, null);
@@ -59,16 +109,17 @@ public class AltarBlock extends Block{
 						}
 					}					
 				}
-				giveRuneExp(world, player, essenceCount);
+				giveRuneExp(world, player, (essenceCount * runeExp));
 			}
-		}
-        return false;
-    }
+		}else if(!world.isRemote) {
+			player.addChatComponentMessage(new ChatComponentText("You need level "+ reqLevel + " Runecrafting for this altar."));
+		}		
+	}
 	
-	public static void giveRuneExp(World world, EntityPlayer player, int exp){
-		if (!world.isRemote) {
+	public static void giveRuneExp(World world, EntityPlayer player, int exp) {
+		if(!world.isRemote) {
 			ExtendedPlayer props = ExtendedPlayer.get(player);
-			if (props.addRuneExp(exp)) {
+			if(props.addRuneExp(exp)) {
 				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getRuneLevel() + " Runecrafting!"));
 			}		
 		}

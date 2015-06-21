@@ -1,5 +1,6 @@
 package com.kandivia.runecrafting.spells;
 
+import com.kandivia.runecrafting.init.RegisterBlocks;
 import com.kandivia.runecrafting.init.RegisterItems;
 import com.kandivia.runecrafting.player.ExtendedPlayer;
 
@@ -29,13 +30,13 @@ public class StandardBook {
 		int count = 0;		
 		if(checkItems(player.inventory, nature, 1) && checkItems(player.inventory, earth, 2) && checkItems(player.inventory, water, 2)) {
 			if(player.inventory.hasItem(Items.bone)) {
-				if(player.inventory.getFirstEmptyStack() == -1){
+				if(player.inventory.getFirstEmptyStack() == -1) {
 					if(!world.isRemote){
 						player.addChatComponentMessage(new ChatComponentText("You don't have any room in your inventory!"));
 					}
-				}else if(consumeItems(player.inventory, nature, 1) &&	consumeItems(player.inventory, earth, 2) &&	
+				}else if(consumeItems(player.inventory, nature, 1) && consumeItems(player.inventory, earth, 2) &&	
 						consumeItems(player.inventory, water, 2)) {
-					for(int i = 0; i < 8; i++){				
+					for(int i = 0; i < 8; i++) {				
 						if(player.inventory.consumeInventoryItem(Items.bone)) {
 							count++;
 						}else {
@@ -43,21 +44,21 @@ public class StandardBook {
 						}
 					}
 				}				
-			}else if(!world.isRemote){
+			}else if(!world.isRemote) {
 				player.addChatComponentMessage(new ChatComponentText("You don't have any bones to cast this spell on!"));
 			}
 			
-		}else if(!world.isRemote){
+		}else if(!world.isRemote) {
 			player.addChatComponentMessage(new ChatComponentText("You don't have the nessecary Runes to cast this spell!"));			
 		}
-		if(count > 0){
+		if(count > 0) {
 			player.inventory.addItemStackToInventory(new ItemStack(Items.apple, count, 0));
 			giveMagicExp(world, player, 2);
 		}		
 	}
 	
 	public static void superheatItem(World world, EntityPlayer player) {
-		ItemStack[] smeltList = new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Blocks.gold_ore), 
+		ItemStack[] smeltList = new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Blocks.gold_ore), new ItemStack(RegisterBlocks.silver_ore),
 				new ItemStack(Blocks.sand), new ItemStack(Blocks.cobblestone), new ItemStack(Items.clay_ball),
 				new ItemStack(Blocks.netherrack), new ItemStack(Blocks.clay)};
 		
@@ -76,28 +77,30 @@ public class StandardBook {
 			}
 			
 			if(smeltableItems) {
-				if(player.inventory.getFirstEmptyStack() == -1){
+				if(player.inventory.getFirstEmptyStack() == -1) {
 					if(!world.isRemote){
 						player.addChatComponentMessage(new ChatComponentText("You don't have any room in your inventory!"));
 					}
-				}else if(consumeItems(player.inventory, nature, 1) &&	consumeItems(player.inventory, fire, 5)) {
+				}else if(consumeItems(player.inventory, nature, 1) && consumeItems(player.inventory, fire, 5)) {
 					int count = 0;
 					boolean finished = false;
-					for(int j = 0; j < smeltList.length && !finished; j++){
+					for(int j = 0; j < smeltList.length && !finished; j++) {
 						while(player.inventory.consumeInventoryItem(smeltList[j].getItem())) {
 							if(j == 0)
 								player.inventory.addItemStackToInventory(new ItemStack(Items.iron_ingot, 1));
 							else if(j == 1)
 								player.inventory.addItemStackToInventory(new ItemStack(Items.gold_ingot, 1));
 							else if(j == 2)
-								player.inventory.addItemStackToInventory(new ItemStack(Blocks.sand, 1));
+								player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.silver_ingot, 1));
 							else if(j == 3)
-								player.inventory.addItemStackToInventory(new ItemStack(Blocks.stone, 1));
+								player.inventory.addItemStackToInventory(new ItemStack(Blocks.sand, 1));
 							else if(j == 4)
-								player.inventory.addItemStackToInventory(new ItemStack(Items.brick, 1));
+								player.inventory.addItemStackToInventory(new ItemStack(Blocks.stone, 1));
 							else if(j == 5)
-								player.inventory.addItemStackToInventory(new ItemStack(Items.netherbrick, 1));
+								player.inventory.addItemStackToInventory(new ItemStack(Items.brick, 1));
 							else if(j == 6)
+								player.inventory.addItemStackToInventory(new ItemStack(Items.netherbrick, 1));
+							else if(j == 7)
 								player.inventory.addItemStackToInventory(new ItemStack(Blocks.hardened_clay, 1));
 							count++;
 							if(count >= 8) {
@@ -117,8 +120,8 @@ public class StandardBook {
 		}		
 	}
 	
-	public static void giveMagicExp(World world, EntityPlayer player, int exp){
-		if (!world.isRemote) {
+	public static void giveMagicExp(World world, EntityPlayer player, int exp) {
+		if(!world.isRemote) {
 			ExtendedPlayer props = ExtendedPlayer.get(player);
 			if (props.addMagicExp(exp)) {
 				player.addChatComponentMessage(new ChatComponentText("Congratulations! You are now level " + props.getMagicLevel() + " Magic!"));

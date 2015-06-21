@@ -17,7 +17,6 @@ import com.kandivia.runecrafting.spells.StandardBook;
 
 public class Spellbook extends Item {
 	
-	
 	public Spellbook() {
 		super();
 		this.maxStackSize = 1;
@@ -35,15 +34,15 @@ public class Spellbook extends Item {
 	}
 	
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-    if (itemStack.stackTagCompound != null) {
-            String owner = itemStack.stackTagCompound.getString("owner");
+		if (itemStack.stackTagCompound != null) {
+			String owner = itemStack.stackTagCompound.getString("owner");
             int serverX = (int) itemStack.stackTagCompound.getDouble("teleportX");
             int serverY = (int) itemStack.stackTagCompound.getDouble("teleportY");
             int serverZ = (int) itemStack.stackTagCompound.getDouble("teleportZ");
             list.add("Owner: " + owner);
             list.add("Coordinates (" + serverX + ", " + serverY + ", " + serverZ+")");
-    }
-}
+		}
+	}
 	
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!player.isSneaking()){
