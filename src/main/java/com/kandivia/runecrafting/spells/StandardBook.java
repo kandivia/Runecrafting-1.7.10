@@ -93,7 +93,7 @@ public class StandardBook {
 							else if(j == 2)
 								player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.silver_ingot, 1));
 							else if(j == 3)
-								player.inventory.addItemStackToInventory(new ItemStack(Blocks.sand, 1));
+								player.inventory.addItemStackToInventory(new ItemStack(Blocks.glass, 1));
 							else if(j == 4)
 								player.inventory.addItemStackToInventory(new ItemStack(Blocks.stone, 1));
 							else if(j == 5)

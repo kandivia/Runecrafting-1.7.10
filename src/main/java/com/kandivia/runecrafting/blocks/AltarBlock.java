@@ -14,8 +14,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.S2FPacketSetSlot;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
@@ -92,23 +95,18 @@ public class AltarBlock extends Block{
 					player.addChatComponentMessage(new ChatComponentText("You don't have any room in your inventory!"));
 			}else {
 				int essenceCount = 0;				
-				for(int slot = 0; slot < player.inventory.getSizeInventory(); slot++) {
-					ItemStack itemstack = player.inventory.getStackInSlot(slot);
-					if(metaNum > 5) {
-						if(itemstack != null && itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1))) {
-							essenceCount++;
-							player.inventory.setInventorySlotContents(slot, null);
-							player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.runes, 1, metaNum));
-						}
-					}else {
-						if(itemstack != null && (itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 0)) || 
-								itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1)))) {
-							essenceCount++;
-							player.inventory.setInventorySlotContents(slot, null);
-							player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.runes, 1, metaNum));							
-						}
+				for(int slotNum = 0; slotNum < player.inventory.getSizeInventory(); slotNum++) {
+					ItemStack itemstack = player.inventory.getStackInSlot(slotNum);
+					if(metaNum <= 5 && ((itemstack != null) && itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 0)))) {
+						essenceCount++;
+						player.inventory.setInventorySlotContents(slotNum, null);
+					}
+					if(itemstack != null && (itemstack.isItemEqual(new ItemStack(RegisterItems.essence, 1, 1)))) {
+						essenceCount++;
+						player.inventory.setInventorySlotContents(slotNum, null);	
 					}					
 				}
+				player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.runes, essenceCount, metaNum));
 				giveRuneExp(world, player, (essenceCount * runeExp));
 			}
 		}else if(!world.isRemote) {
