@@ -1,5 +1,7 @@
 package com.kandivia.runecrafting.spells;
 
+import java.util.Random;
+
 import com.kandivia.runecrafting.init.RegisterBlocks;
 import com.kandivia.runecrafting.init.RegisterItems;
 import com.kandivia.runecrafting.player.ExtendedPlayer;
@@ -25,6 +27,8 @@ public class StandardBook {
 	public static ItemStack nature = new ItemStack(RegisterItems.runes, 1, 8);
 	public static ItemStack law = new ItemStack(RegisterItems.runes, 1, 9);
 	public static ItemStack death = new ItemStack(RegisterItems.runes, 1, 10);
+	
+	private static Random rand = new Random();
 	
 	public static void bonesToApples(World world, EntityPlayer player) {
 		int count = 0;		
@@ -110,6 +114,7 @@ public class StandardBook {
 						}	
 					}
 					giveMagicExp(world, player, 2);
+					world.playSoundAtEntity(player, "random.orb", 0.1F, 0.5F * ((rand.nextFloat() - rand.nextFloat()) * 0.7F + 1.8F));
 				}
 			}else if(!world.isRemote) {
 				player.addChatComponentMessage(new ChatComponentText("You don't have anything to cast this spell on!"));

@@ -12,5 +12,4 @@ public class Materials extends Item {
 		this.setTextureName(Reference.MOD_ID + ":" + getUnlocalizedName().substring(5));
 		this.setCreativeTab(MainRegistry.tabRunecrafting);
 	}
-
 }

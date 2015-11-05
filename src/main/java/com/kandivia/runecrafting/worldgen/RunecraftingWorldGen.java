@@ -19,8 +19,11 @@ public class RunecraftingWorldGen implements IWorldGenerator {
 		switch(world.provider.dimensionId){
 		case 0 :
 			generateSurface(world, random, chunkX*16, chunkZ*16);
+			break;
 		case -1 :
+			break;
 		case 1 :
+			break;
 		}		
 	}
 
@@ -29,14 +32,12 @@ public class RunecraftingWorldGen implements IWorldGenerator {
 				4+random.nextInt(6), Reference.silverSpawnChance, Reference.silverMinY, Reference.silverMaxY);
 	}
 
-	private void generateNether(World world, Random random, int x, int z) {
-	}
+	private void generateNether(World world, Random random, int x, int z) {}
 	
-	private void generateEnd(World world, Random random, int x, int z) {		
-	}
+	private void generateEnd(World world, Random random, int x, int z) {}
 	
-	private void addOreSpawn(Block block, World world,
-			Random random, int blockXPos, int blockZPos, int maxX, int maxZ, 
+	private void addOreSpawn(Block block, World world, Random random,
+			int blockXPos, int blockZPos, int maxX, int maxZ, 
 			int maxVeinSize, int chanceToSpawn, int minY, int maxY) {
 		for(int i = 0; i < chanceToSpawn; i++) {
 			int posX = blockXPos + random.nextInt(maxX);

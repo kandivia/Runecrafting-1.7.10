@@ -16,9 +16,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class Runes extends Item{
-public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
-	"cosmic", "chaos", "nature", "law", "death", "blood", "astral", "soul", "armadyl",
-	"mist", "dust", "mud", "smoke", "steam", "lava", "nether", "ender", "wither"};
+	public static final String[] type = new String[] {"air", "mind", "water", "earth", "fire", "body", 
+		"cosmic", "chaos", "nature", "law", "death", "blood", "astral", "soul", "armadyl",
+		"mist", "dust", "mud", "smoke", "steam", "lava", "nether", "ender", "wither"};
 	
 	public Runes(){
 		super();
